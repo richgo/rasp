@@ -1,0 +1,260 @@
+
+
+  <md-toolbar color="primary">
+    <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+  RASP
+    <span class="app-toolbar-filler"></span>
+    <button md-button (click)="isDarkTheme = !isDarkTheme">TOGGLE DARK THEME</button>
+  </md-toolbar>
+
+<md-sidenav-container [class.m2app-dark]="isDarkTheme"  class="docs-component-viewer-sidenav-container">
+
+
+<md-sidenav #sidenav class="docs-component-viewer-sidenav"
+              [opened]="true"
+              [mode]="'side'">
+ 
+<nav *ngFor="let grouping of questionConfig.getConfig()">
+      <h3> <a href="#">{{grouping.name}}</a></h3>
+      <ul>
+        <li *ngFor="let subgroup of grouping.subgrouping">
+          <a href="#">
+            {{subgroup.name}}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </md-sidenav>
+
+
+
+
+
+  <div class="app-content">
+   <md-tab-group>
+  <md-tab label="Alignment of ambition">
+        <md-card>
+           The extent to which the aims of the respective partners in the shared service programme are understood, shared openly and are not in conflict
+        </md-card>
+        <md-grid-list cols="2">
+          <md-grid-tile>
+      <md-card>
+            
+            <h4>Business buy-in</h4> 
+            <table>
+              <tbody>
+              <tr>
+                <td>
+            <p>Does the wider organisation understand and support the ambitions of each organisation?</p>
+              </td>
+              <td>
+             <md-select placeholder="score">
+                <md-option *ngFor="let score of scores" [value]="score">{{ score }}</md-option>
+              </md-select>
+               <td>
+              </tr>
+             <tr>
+                <td>
+                  <p>Does everyone have a common understanding of the objectives of the programme: What success looks like?</p>
+                   </td>
+                   <td>
+              <md-select placeholder="score">
+                <md-option *ngFor="let score of scores" [value]="score">{{ score }}</md-option>
+              </md-select>
+               </td>
+              </tr>       
+               <tr>
+                <td>
+                  <p>Is it accepted that middle-management responsibilities are likely to be impacted?</p>
+                   </td>
+                   <td>
+              <md-select placeholder="score">
+                <md-option *ngFor="let score of scores" [value]="score">{{ score }}</md-option>
+              </md-select>
+               </td>
+              </tr>       
+               <tr>
+                <td>
+                  <p>Is there a post-delivery operating model based on an agreed enterprise architecture if required?</p>
+                   </td>
+                   <td>
+              <md-select placeholder="score">
+                <md-option *ngFor="let score of scores" [value]="score">{{ score }}</md-option>
+              </md-select>
+               </td>
+              </tr>       
+                <tr>
+                <td>
+                  <p>Is there an agreed single staff communications plan?</p>
+                   </td>
+                   <td>
+              <md-select placeholder="score">
+                <md-option *ngFor="let score of scores" [value]="score">{{ score }}</md-option>
+              </md-select>
+               </td>
+              </tr>       
+         </tbody>
+         </table>
+         
+       </md-card>
+   
+       </md-grid-tile>
+       <md-grid-tile>
+   
+      <md-card>
+        
+   <radar-chart></radar-chart>
+        
+      </md-card>
+    </md-grid-tile>
+    </md-grid-list>
+      
+    </md-tab>
+       <md-tab label="Ethos and Cultures">
+        </md-tab>
+        <md-tab label="Treatment of Resources">
+        </md-tab>
+        <md-tab label="Risk management">
+        </md-tab>
+        <md-tab label="Governance">
+        </md-tab>
+        <md-tab label="Overall">
+        </md-tab>
+              
+     </md-tab-group>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+    <md-card>
+      <button md-button>FLAT</button>
+      <button md-raised-button md-tooltip="This is a tooltip!">RAISED</button>
+      <button md-raised-button color="primary">PRIMARY RAISED</button>
+      <button md-raised-button color="accent">ACCENT RAISED</button>
+    </md-card>
+
+    <md-card>
+      <md-checkbox>Unchecked</md-checkbox>
+      <md-checkbox [checked]="true">Checked</md-checkbox>
+      <md-checkbox [indeterminate]="true">Indeterminate</md-checkbox>
+      <md-checkbox [disabled]="true">Disabled</md-checkbox>
+    </md-card>
+
+    <md-card>
+      <md-radio-button name="symbol">Alpha</md-radio-button>
+      <md-radio-button name="symbol">Beta</md-radio-button>
+      <md-radio-button name="symbol" disabled>Gamma</md-radio-button>
+    </md-card>
+
+    <md-card class="app-input-section">
+      <md-input placeholder="First name"></md-input>
+
+      <md-input #nickname placeholder="Nickname" maxlength="50">
+        <md-hint align="end">
+          {{nickname.characterCount}} / 50
+        </md-hint>
+      </md-input>
+
+      <md-input>
+        <md-placeholder>
+          <i class="material-icons app-input-icon">android</i> Favorite phone
+        </md-placeholder>
+      </md-input>
+
+      <md-input placeholder="Motorcycle model">
+        <span md-prefix>
+          <i class="material-icons app-input-icon">motorcycle</i>
+          &nbsp;
+        </span>
+      </md-input>
+    </md-card>
+
+    <md-card>
+      <md-list class="app-list">
+        <md-list-item *ngFor="let food of foods">
+          <h3 md-line>{{food.name}}</h3>
+          <p md-line class="demo-secondary-text">{{food.rating}}</p>
+        </md-list-item>
+      </md-list>
+    </md-card>
+
+    <md-card>
+      <md-spinner class="app-spinner"></md-spinner>
+      <md-spinner color="accent" class="app-spinner"></md-spinner>
+    </md-card>
+
+    <md-card>
+      <label>
+        Indeterminate progress-bar
+        <md-progress-bar
+            class="app-progress"
+            mode="indeterminate"
+            aria-label="Indeterminate progress-bar example"></md-progress-bar>
+      </label>
+
+      <label>
+        Determinate progress bar - {{progress}}%
+        <md-progress-bar
+            class="app-progress"
+            color="accent"
+            mode="determinate"
+            [value]="progress"
+            aria-label="Determinate progress-bar example"></md-progress-bar>
+      </label>
+    </md-card>
+
+    <md-card>
+      <md-tab-group>
+        <md-tab label="Earth">
+          <p>EARTH</p>
+        </md-tab>
+        <md-tab label="Fire">
+          <p>FIRE</p>
+        </md-tab>
+      </md-tab-group>
+    </md-card>
+
+    <md-card>
+      <md-icon>build</md-icon>
+    </md-card>
+
+    <md-card>
+      <button md-button [md-menu-trigger-for]="menu">
+        MENU
+      </button>
+    </md-card>
+
+    <md-menu #menu="mdMenu">
+      <button md-menu-item>Lemon</button>
+      <button md-menu-item>Lime</button>
+      <button md-menu-item>Banana</button>
+    </md-menu>
+
+    <md-card>
+      <p>Last dialog result: {{lastDialogResult}}</p>
+      <button md-raised-button (click)="openDialog()">DIALOG</button>
+      <button md-raised-button (click)="showSnackbar()">SNACKBAR</button>
+    </md-card>
+
+  </div>
+
+
+
+<span class="app-action" [class.m2app-dark]="isDarkTheme">
+  <button md-fab><md-icon>check circle</md-icon></button>
+</span>
+
+<app-footer></app-footer>
+
+  </md-sidenav-container>

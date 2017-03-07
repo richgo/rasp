@@ -1,0 +1,33 @@
+/* For use in src/lib/core/theming/_palette.scss */
+$md-mcgpalette0: (
+    50 : #ece6ec,
+    100 : #cec2d0,
+    200 : #ae99b0,
+    300 : #8e7090,
+    400 : #755179,
+    500 : #5d3261,
+    600 : #552d59,
+    700 : #4b264f,
+    800 : #411f45,
+    900 : #301333,
+    A100 : #ef73ff,
+    A200 : #ea40ff,
+    A400 : #e40dff,
+    A700 : #d700f2,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);

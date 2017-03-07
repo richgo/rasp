@@ -1,0 +1,207 @@
+md-sidenav-layout.m2app-dark {
+  background: black;
+}
+
+.app-content {
+  padding: 20px;
+}
+
+.app-content md-card {
+  margin: 20px;
+}
+
+.app-sidenav {
+  padding: 10px;
+  min-width: 100px;
+}
+
+.app-content md-checkbox {
+  margin: 10px;
+}
+
+.app-toolbar-filler {
+  flex: 1 1 auto;
+}
+
+.app-toolbar-menu {
+  padding: 0 14px 0 14px;
+  color: white;
+}
+
+.app-icon-button {
+  box-shadow: none;
+  user-select: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  filter: none;
+  font-weight: normal;
+  height: auto;
+  line-height: inherit;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+  text-align: left;
+  text-decoration: none;
+}
+
+.app-action {
+  display: inline-block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.app-spinner {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+}
+
+.app-input-icon {
+  font-size: 16px;
+}
+
+.app-list {
+  border: 1px solid rgba(0,0,0,0.12);
+  width: 350px;
+  margin: 20px;
+}
+
+.app-progress {
+  margin: 20px;
+}
+
+
+
+
+
+
+
+
+$sidenav-spacing-unit: 8px;
+$sidenav-width: 240px;
+
+app-component-sidenav {
+  display: flex;
+}
+
+.docs-component-viewer-sidenav-container {
+  width: 100%;
+
+  .mat-sidenav-content {
+    position: absolute;
+    right: 0;
+    left: 0;
+  }
+}
+
+.docs-component-viewer-sidenav {
+  box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
+  padding-bottom: 72px;
+  width: $sidenav-width;
+  bottom: 0;
+  overflow: auto;
+  height: 100%;
+
+  &.mat-sidenav-opened {
+    box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
+  }
+
+  // Section divider
+  h3 {
+    border: none;
+    font-size: 10px;
+    letter-spacing: 1px;
+    line-height: $sidenav-spacing-unit * 3;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin: 0;
+    padding: 0 ($sidenav-spacing-unit * 2);
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  // Sidenav navigation item
+  li {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    margin: 0;
+    padding: 0;
+
+
+    // Hide the border on the last item
+    &:last-child {
+      border-color: transparent;
+    }
+
+    > a {
+      box-sizing: border-box;
+      display: block;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: ($sidenav-spacing-unit * 6) - 1;
+      text-decoration: none;
+      transition: all .3s;
+      padding: 0 ($sidenav-spacing-unit * 2);
+      position: relative;
+
+      &.docs-component-viewer-sidenav-item-selected {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.docs-component-sidenav-content {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  // The rule will match the element following the router-outlet which will be the routed component.
+  router-outlet + * {
+    flex-grow: 1;
+  }
+}
+
+@import '~@angular/material/core/theming/theming';
+
+@mixin component-viewer-sidenav-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $sidenav: '.docs-component-viewer-sidenav';
+
+
+  .docs-component-viewer-sidenav {
+
+    // Section divider
+    h3 {
+      background: rgba(mat-color($foreground, secondary-text), .32);
+      color: mat-color($primary, default-contrast);
+    }
+ 
+    // Sidenav navigation items
+    li {
+      border-color: rgba(mat-color($foreground, secondary-text), .06);
+      color: mat-color($foreground, secondary-text);
+
+      > a {
+      color: mat-color($foreground, secondary-text);
+
+        &.is-selected,
+        &:hover,
+        &:focus {
+          background: mat-color($background, background);
+          color: mat-color($primary);
+        }
+      }
+    }
+  }
+}
