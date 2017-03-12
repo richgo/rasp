@@ -1,8 +1,9 @@
-<div style="display: block">
+<div style="display: block" >
   <canvas baseChart
           [datasets]="radarChartData"
           [labels]="radarChartLabels"
           [chartType]="radarChartType"
           (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)"></canvas>
+          (chartClick)="chartClicked($event)"
+          width="500" height="500"></canvas>
 </div>

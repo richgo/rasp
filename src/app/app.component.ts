@@ -1,18 +1,18 @@
-import {Component, Optional} from '@angular/core';
-import {MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';
+import { Component, Optional } from '@angular/core';
+import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 import { QuestionConfig } from './questionconfig';
 
 @Component({
-  selector: 'material2-app-app',
+  selector: 'rasp-app',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 
-export class Material2AppAppComponent {
+export class AppComponent {
   isDarkTheme: boolean = false;
   lastDialogResult: string;
 
-  scores = [1,2,3,4,5];
+
 
   foods: any[] = [
     {name: 'Pizza', rating: 'Excellent'},

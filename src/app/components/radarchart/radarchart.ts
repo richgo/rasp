@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
 })
 export class RadarChartComponent {
   // Radar
-  public radarChartLabels:string[] = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
+  public radarChartLabels:string[] = ['Business buy-in', 'Knowing what is to be shared', 'Political Backing', 'Agreeing where best practice lies'];
  
   public radarChartData:any = [
-    {data: [65, 59, 90, 81, 56, 55, 40], label: 'Current'}
+    {data: [2, 3, 5, 3, 5], label: 'Alignment of Ambition'}
   ];
   public radarChartType:string = 'radar';
  
