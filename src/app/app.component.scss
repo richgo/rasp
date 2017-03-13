@@ -40,7 +40,7 @@ md-sidenav-layout.m2app-dark {
   line-height: inherit;
   margin: 0;
   min-width: 0;
-  padding: 0;
+
   text-align: left;
   text-decoration: none;
 }
@@ -71,8 +71,6 @@ md-sidenav-layout.m2app-dark {
 .app-progress {
   margin: 20px;
 }
-
-
 
 
 
@@ -117,7 +115,8 @@ app-component-sidenav {
     text-transform: uppercase;
     font-weight: 400;
     margin: 0;
-    padding: 0 ($sidenav-spacing-unit * 2);
+    padding: 0;
+        
   }
 
   ul {
@@ -128,10 +127,11 @@ app-component-sidenav {
 
   // Sidenav navigation item
   li {
-    border-bottom-width: 1px;
+    border-bottom-width: 0px;
     border-bottom-style: solid;
     margin: 0;
-    padding: 0;
+    padding: 0 $sidenav-spacing-unit * 2;
+ 
 
 
     // Hide the border on the last item
@@ -144,11 +144,12 @@ app-component-sidenav {
       display: block;
       font-size: 14px;
       font-weight: 400;
-      line-height: ($sidenav-spacing-unit * 6) - 1;
+      line-height: ($sidenav-spacing-unit * 4);
       text-decoration: none;
       transition: all .3s;
       padding: 0 ($sidenav-spacing-unit * 2);
       position: relative;
+      text-align: left;
 
       &.docs-component-viewer-sidenav-item-selected {
         font-weight: 600;
@@ -165,43 +166,5 @@ app-component-sidenav {
   // The rule will match the element following the router-outlet which will be the routed component.
   router-outlet + * {
     flex-grow: 1;
-  }
-}
-
-@import '~@angular/material/core/theming/theming';
-
-@mixin component-viewer-sidenav-theme($theme) {
-  $primary: map-get($theme, primary);
-  $accent: map-get($theme, accent);
-  $warn: map-get($theme, warn);
-  $background: map-get($theme, background);
-  $foreground: map-get($theme, foreground);
-  $sidenav: '.docs-component-viewer-sidenav';
-
-
-  .docs-component-viewer-sidenav {
-
-    // Section divider
-    h3 {
-      background: rgba(mat-color($foreground, secondary-text), .32);
-      color: mat-color($primary, default-contrast);
-    }
- 
-    // Sidenav navigation items
-    li {
-      border-color: rgba(mat-color($foreground, secondary-text), .06);
-      color: mat-color($foreground, secondary-text);
-
-      > a {
-      color: mat-color($foreground, secondary-text);
-
-        &.is-selected,
-        &:hover,
-        &:focus {
-          background: mat-color($background, background);
-          color: mat-color($primary);
-        }
-      }
-    }
   }
 }

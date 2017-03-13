@@ -9,10 +9,18 @@ import { AppComponent } from './app.component';
 const appRoutes: Routes = [
  {
   path: '',
-  redirectTo: '/dataentry',
+  redirectTo: '/dataentry/:gid',
   pathMatch: 'full'
  },
-   {
+ {
+  path: 'dataentry/:gid/:sid',
+  component: DataentryComponent
+ },
+ {
+  path: 'dataentry/:gid',
+  component: DataentryComponent
+ },
+ {
   path: 'dataentry',
   component: DataentryComponent
  },
@@ -34,11 +42,15 @@ const appRoutes: Routes = [
   children : [
   {
     path: '',
-    redirectTo: '/dataentry',
+    redirectTo: '/dataentry/:gid/:sid',
     pathMatch: 'full'
   },
   {
-    path: 'dataentry',
+    path: 'dataentry/:gid/:sid',
+   component: DataentryComponent
+  },
+   {
+    path: 'dataentry/:gid',
    component: DataentryComponent
   },
   {

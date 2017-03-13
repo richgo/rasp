@@ -1,66 +1,25 @@
   <md-card>
-    <h3>Alignment of ambitions</h3>
+    <h3>{{groupname}}</h3>
     <p>
-           The extent to which the aims of the respective partners in the shared service programme are understood, shared openly and are not in conflict
+          {{groupdescription}}
     </p>
         </md-card>
         <md-grid-list cols="2">
-          <md-grid-tile>
+          <md-grid-tile >
       <md-card>
-            
-            <h4>Business buy-in</h4> 
+            <h4>{{subgroupname}}</h4> 
             <table>
               <tbody>
-              <tr>
+              <tr *ngFor="let q of questions">
                 <td>
-            <p>Does the wider organisation understand and support the ambitions of each organisation?</p>
-              </td>
-              <td>
-             <md-select placeholder="score">
-                <md-option *ngFor="let score of scores" [value]="score">{{ score }}</md-option>
-              </md-select>
-               <td>
-              </tr>
-             <tr>
-                <td>
-                  <p>Does everyone have a common understanding of the objectives of the programme: What success looks like?</p>
-                   </td>
-                   <td>
-              <md-select placeholder="score">
-                <md-option *ngFor="let score of scores" [value]="score">{{ score }}</md-option>
-              </md-select>
-               </td>
-              </tr>       
-               <tr>
-                <td>
-                  <p>Is it accepted that middle-management responsibilities are likely to be impacted?</p>
-                   </td>
-                   <td>
-              <md-select placeholder="score">
-                <md-option *ngFor="let score of scores" [value]="score">{{ score }}</md-option>
-              </md-select>
-               </td>
-              </tr>       
-               <tr>
-                <td>
-                  <p>Is there a post-delivery operating model based on an agreed enterprise architecture if required?</p>
-                   </td>
-                   <td>
-              <md-select placeholder="score">
-                <md-option *ngFor="let score of scores" [value]="score">{{ score }}</md-option>
-              </md-select>
-               </td>
-              </tr>       
-                <tr>
-                <td>
-                  <p>Is there an agreed single staff communications plan?</p>
-                   </td>
-                   <td>
-              <md-select placeholder="score">
-                <md-option *ngFor="let score of scores" [value]="score">{{ score }}</md-option>
-              </md-select>
-               </td>
-              </tr>       
+                 <p>{{q.question}}</p>
+                  </td>
+                  <td>
+                  <md-select placeholder="score">
+                    <md-option *ngFor="let score of scores" [value]="score">{{ score }}</md-option>
+                  </md-select>
+                 <td>
+              </tr>             
          </tbody>
          <tfoot>
            <tr>
@@ -83,7 +42,8 @@
    
       <md-card>
         
-   <radar-chart></radar-chart>
+   <radar-chart [radarChartData]="radarChartData"
+                [radarChartLabels]="radarChartLabels"></radar-chart>
         
       </md-card>
     </md-grid-tile>

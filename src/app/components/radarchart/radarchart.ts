@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
- 
+import { Component, Input  } from '@angular/core';
+import { DataentryComponent } from '../dataentry/dataentry.component';
+
 @Component({
   selector: 'radar-chart',
   templateUrl: './radarchart.html'
 })
 export class RadarChartComponent {
+  @Input() radarChartLabels: radarChartLabels;
+  @Input() radarChartData: radarChartData;
   // Radar
-  public radarChartLabels:string[] = ['Business buy-in', 'Knowing what is to be shared', 'Political Backing', 'Agreeing where best practice lies'];
+  // public radarChartLabels:string[] = [];
  
-  public radarChartData:any = [
-    {data: [2, 3, 5, 3, 5], label: 'Alignment of Ambition'}
-  ];
+  // public radarChartData:any = [
+  //   {data: [], label: ''}
+  // ];
   public radarChartType:string = 'radar';
  
   // events

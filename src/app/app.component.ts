@@ -2,6 +2,7 @@ import { Component, Optional } from '@angular/core';
 import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 import { QuestionConfig } from './questionconfig';
 
+
 @Component({
   selector: 'rasp-app',
   templateUrl: 'app.component.html',

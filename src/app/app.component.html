@@ -1,18 +1,30 @@
 
 
   <md-toolbar color="primary">
-    <button class="app-icon-button" (click)="sidenav.toggle()">
-      <i class="material-icons app-toolbar-menu">menu</i>
+
+    <button md-button [routerLink]="['/dataentry']"  (click)="sidenav.open()">
+      <md-icon>mode_edit</md-icon>
     </button>
-  RASP
-    <span class="app-toolbar-filler"></span>
- 
- 
-  <button md-button [md-menu-trigger-for]="menu">
+
+    <button md-button [routerLink]="['/overall']"  (click)="sidenav.close()">
+      <md-icon>trending_up</md-icon>      
+    </button>
+     
+    <span class="app-toolbar-filler"></span> 
+ RASP
+   <button md-button class="app-icon-button" [md-menu-trigger-for]="account">
+      <md-icon>account_circle</md-icon>      
+    </button>
+
+     <md-menu #account="mdMenu">
+         <button md-button >Log out</button>     
+    </md-menu>
+
+  <button md-button class="app-icon-button" [md-menu-trigger-for]="settings">
       <md-icon>settings</md-icon>
   </button>
 
-    <md-menu #menu="mdMenu">
+    <md-menu #settings="mdMenu">
          <button md-button (click)="isDarkTheme = !isDarkTheme">TOGGLE DARK THEME</button>     
     </md-menu>
 
@@ -25,10 +37,12 @@
               [mode]="'side'">
  
 <nav *ngFor="let grouping of questionConfig.getConfig()">
-      <h3> <a href="#">{{grouping.name}}</a></h3>
+      <h3>
+          <a [routerLink]="['/dataentry', grouping.gid]" md-button>{{grouping.name}}</a>
+      </h3>
       <ul>
         <li *ngFor="let subgroup of grouping.subgrouping">
-          <a href="#">
+        <a  [routerLink]="['/dataentry', grouping.gid, subgroup.sid]" md-button>
             {{subgroup.name}}
           </a>
         </li>
@@ -39,12 +53,6 @@
   <div class="app-content">
   
   <router-outlet></router-outlet>
-
-
-
-
-
-
 
 
   </div>
