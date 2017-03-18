@@ -1,0 +1,6 @@
+<md-card>
+<h2>Readiness Assessment for a Shared Program</h2>
+<p>Welcome to the Readiness Assessment for a Shared Program</p>
+  <button md-raised-button color="primary" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
+  <button md-raised-button color="accent" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
+</md-card>

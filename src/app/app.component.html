@@ -3,21 +3,25 @@
   <md-toolbar color="primary">
 
     <button md-button [routerLink]="['/dataentry']"  (click)="sidenav.open()">
+      CATEGORIES
       <md-icon>mode_edit</md-icon>
     </button>
 
     <button md-button [routerLink]="['/overall']"  (click)="sidenav.close()">
+      OVERALL
       <md-icon>trending_up</md-icon>      
     </button>
      
     <span class="app-toolbar-filler"></span> 
- RASP
+    <img src="/assets/Eduserv-logo-white-transparent2s.png"/>
+
    <button md-button class="app-icon-button" [md-menu-trigger-for]="account">
       <md-icon>account_circle</md-icon>      
     </button>
 
      <md-menu #account="mdMenu">
-         <button md-button >Log out</button>     
+        <button md-button (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
+        <button md-button (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button> 
     </md-menu>
 
   <button md-button class="app-icon-button" [md-menu-trigger-for]="settings">

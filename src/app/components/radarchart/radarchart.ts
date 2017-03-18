@@ -6,8 +6,8 @@ import { DataentryComponent } from '../dataentry/dataentry.component';
   templateUrl: './radarchart.html'
 })
 export class RadarChartComponent {
-  @Input() radarChartLabels: radarChartLabels;
-  @Input() radarChartData: radarChartData;
+  @Input() radarChartLabels: string[];
+  @Input() radarChartData: {};
   // Radar
   // public radarChartLabels:string[] = [];
  

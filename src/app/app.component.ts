@@ -1,7 +1,10 @@
 import { Component, Optional } from '@angular/core';
 import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 import { QuestionConfig } from './questionconfig';
-
+import { Http } from '@angular/http';
+import { Router } from '@angular/router';
+import { AuthHttp } from 'angular2-jwt';
+import { AuthService } from './common/auth.service';
 
 @Component({
   selector: 'rasp-app',
@@ -10,52 +13,49 @@ import { QuestionConfig } from './questionconfig';
 })
 
 export class AppComponent {
+
   isDarkTheme: boolean = false;
   lastDialogResult: string;
+  jwt: string;
+  decodedJwt: string;
+  response: string;
+  api: string;
 
-
-
-  foods: any[] = [
-    {name: 'Pizza', rating: 'Excellent'},
-    {name: 'Burritos', rating: 'Great'},
-    {name: 'French fries', rating: 'Pretty good'},
-  ];
-
-  progress: number = 0;
-
-  constructor(public questionConfig: QuestionConfig, private _dialog: MdDialog, private _snackbar: MdSnackBar) {
-    // Update the value for the progress-bar on an interval.
-    setInterval(() => {
-      this.progress = (this.progress + Math.floor(Math.random() * 4) + 1) % 100;
-    }, 200);
+  constructor(public questionConfig: QuestionConfig, public router: Router, public http: Http, public authHttp: AuthHttp, private auth: AuthService) {
+    // this.jwt = localStorage.getItem('id_token');
+    // this.decodedJwt = this.jwt && window.jwt_decode(this.jwt);
   }
 
-  openDialog() {
-    let dialogRef = this._dialog.open(DialogContent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.lastDialogResult = result;
-    })
+  logout() {
+    localStorage.removeItem('id_token');
+    this.router.navigate(['login']);
   }
 
-  showSnackbar() {
-    this._snackbar.open('YUM SNACKS', 'CHEW');
+  callAnonymousApi() {
+    this._callApi('Anonymous', 'http://localhost:3001/api/random-quote');
   }
-}
 
+  callSecuredApi() {
+    this._callApi('Secured', 'http://localhost:3001/api/protected/random-quote');
+  }
 
-@Component({
-  template: `
-    <p>This is a dialog</p>
-    <p>
-      <label>
-        This is a text box inside of a dialog.
-        <input #dialogInput>
-      </label>
-    </p>
-    <p> <button md-button (click)="dialogRef.close(dialogInput.value)">CLOSE</button> </p>
-  `,
-})
-export class DialogContent {
-  constructor(@Optional() public dialogRef: MdDialogRef<DialogContent>) { }
+  _callApi(type, url) {
+    this.response = null;
+    if (type === 'Anonymous') {
+      // For non-protected routes, just use Http
+      this.http.get(url)
+        .subscribe(
+          response => this.response = response.text(),
+          error => this.response = error.text()
+        );
+    }
+    if (type === 'Secured') {
+      // For protected routes, use AuthHttp
+      this.authHttp.get(url)
+        .subscribe(
+          response => this.response = response.text(),
+          error => this.response = error.text()
+        );
+    }
+  }
 }
