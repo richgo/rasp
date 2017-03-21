@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { QuestionConfig } from '../../questionconfig';
 
 @Component({
-  selector: 'app-dataentry',
-  templateUrl: './dataentry.component.html',
-  styleUrls: ['./dataentry.component.css']
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.css']
 })
-export class DataentryComponent implements OnInit {
+export class CategoryComponent implements OnInit {
 
   @Output() radarChartLabels:string[] = []; 
   @Output() radarChartData:any = [

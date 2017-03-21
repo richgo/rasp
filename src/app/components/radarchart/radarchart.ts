@@ -1,5 +1,4 @@
 import { Component, Input  } from '@angular/core';
-import { DataentryComponent } from '../dataentry/dataentry.component';
 
 @Component({
   selector: 'radar-chart',

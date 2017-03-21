@@ -1,0 +1,55 @@
+  <md-card>
+    <h3>{{groupname}}</h3>
+    <p>
+          {{groupdescription}}
+    </p>
+        </md-card>
+        <md-grid-list cols="2">
+          <md-grid-tile >
+      <md-card>
+            <h4>Summary</h4> 
+            <table>
+              <thead>
+                <td>Category</td>
+                <td>Score</td>
+              </thead>
+              <tbody>
+              <tr *ngFor="let  of questions">
+                <td>
+                 <p>{{q.question}}</p>
+                  </td>
+                  <td>
+                  <md-select placeholder="score">
+                    <md-option *ngFor="let score of scores" [value]="score">{{ score }}</md-option>
+                  </md-select>
+                 <td>
+              </tr>             
+         </tbody>
+         <tfoot>
+           <tr>
+             <td></td>
+             <td>
+                        
+    <span class="app-action" [class.m2app-dark]="isDarkTheme">
+      <button title="save" md-fab><md-icon>check circle</md-icon></button>
+    </span>
+             </td>
+
+           </tr>
+         </table>
+         
+
+       </md-card>
+   
+       </md-grid-tile>
+       <md-grid-tile>
+   
+      <md-card>
+        
+   <radar-chart [radarChartData]="radarChartData"
+                [radarChartLabels]="radarChartLabels"></radar-chart>
+        
+      </md-card>
+    </md-grid-tile>
+    </md-grid-list>
+      

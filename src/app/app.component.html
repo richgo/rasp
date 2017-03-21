@@ -1,9 +1,13 @@
 
 
   <md-toolbar color="primary">
+    <button md-button [routerLink]="['/login']"  (click)="sidenav.close()">
+    HOME
+      <md-icon>home</md-icon>
+    </button>
 
-    <button md-button [routerLink]="['/dataentry']"  (click)="sidenav.open()">
-      CATEGORIES
+    <button md-button [routerLink]="['/grouping/0']"  (click)="sidenav.open()">
+      GROUPINGS
       <md-icon>mode_edit</md-icon>
     </button>
 
@@ -42,11 +46,11 @@
  
 <nav *ngFor="let grouping of questionConfig.getConfig()">
       <h3>
-          <a [routerLink]="['/dataentry', grouping.gid]" md-button>{{grouping.name}}</a>
+          <a [routerLink]="['/grouping', grouping.gid]" md-button>{{grouping.name}}</a>
       </h3>
       <ul>
         <li *ngFor="let subgroup of grouping.subgrouping">
-        <a  [routerLink]="['/dataentry', grouping.gid, subgroup.sid]" md-button>
+        <a  [routerLink]="['/category', grouping.gid, subgroup.sid]" md-button>
             {{subgroup.name}}
           </a>
         </li>
