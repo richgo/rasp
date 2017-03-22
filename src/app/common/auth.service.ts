@@ -3,19 +3,37 @@
 
 import { Injectable }      from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
+import { UserService } from './user.service';
 
 // Avoid name not found warnings
 declare var Auth0Lock: any;
 
 @Injectable()
 export class AuthService {
+
+  userProfile: Object;
+
   // Configure Auth0
   lock = new Auth0Lock('4JH5qqVftGiW32fG15InBagfbY4ttwSV', 'offworld.eu.auth0.com', {});
 
-  constructor() {
+  constructor(public UserService: UserService,) {
     // Add callback for lock `authenticated` event
     this.lock.on("authenticated", (authResult) => {
       localStorage.setItem('id_token', authResult.idToken);
+
+        this.lock.getProfile(authResult.idToken, (error, profile) => {
+        if (error) {
+          // Handle error
+          alert(error);
+          return;
+        }
+
+        localStorage.setItem('profile', JSON.stringify(profile));
+        this.userProfile = profile;
+        console.debug(profile);
+        let user = this.UserService.load(profile.email);
+        
+      });      
     });
   }
 

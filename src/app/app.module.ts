@@ -5,6 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
 import { routing } from './routes';
 import { QuestionConfig } from './questionconfig';
+import { UserService } from './common/user.service';
 import { AppComponent } from './app.component';
 import { ChartsModule } from 'ng2-charts';
 import { RadarChartComponent } from './components/radarchart/radarchart';
@@ -48,7 +49,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
                   GroupingComponent,
                   HomeComponent],
   entryComponents: [],
-  providers: [QuestionConfig, AuthService, AuthGuard,  
+  providers: [QuestionConfig, UserService, AuthService, AuthGuard,  
     {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
