@@ -11,8 +11,7 @@ import { ChartsModule } from 'ng2-charts';
 import { RadarChartComponent } from './components/radarchart/radarchart';
 import { Footer } from './components/footer/footer';
 import { SideNavComponent } from './components/sidenav/sidenav';
-import { HelpComponent } from './components/help/help.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { KeytouseComponent } from './components/keytouse/keytouse.component';
 import { CategoryComponent } from './components/category/category.component';
 import { OverallComponent } from './components/overall/overall.component';
 
@@ -42,8 +41,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
                   Footer, 
                   SideNavComponent, 
                   RadarChartComponent, 
-                  HelpComponent, 
-                  ContactComponent, 
+                  KeytouseComponent, 
                   CategoryComponent, 
                   OverallComponent,
                   GroupingComponent,

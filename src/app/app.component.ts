@@ -1,5 +1,4 @@
 import { Component, Optional } from '@angular/core';
-import { MdDialog, MdDialogRef, MdSnackBar } from '@angular/material';
 import { QuestionConfig } from './questionconfig';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
@@ -22,40 +21,13 @@ export class AppComponent {
   api: string;
 
   constructor(public questionConfig: QuestionConfig, public router: Router, public http: Http, public authHttp: AuthHttp, private auth: AuthService) {
-    // this.jwt = localStorage.getItem('id_token');
-    // this.decodedJwt = this.jwt && window.jwt_decode(this.jwt);
+   
   }
+
 
   logout() {
     localStorage.removeItem('id_token');
     this.router.navigate(['login']);
   }
 
-  callAnonymousApi() {
-    this._callApi('Anonymous', 'http://localhost:3001/api/random-quote');
-  }
-
-  callSecuredApi() {
-    this._callApi('Secured', 'http://localhost:3001/api/protected/random-quote');
-  }
-
-  _callApi(type, url) {
-    this.response = null;
-    if (type === 'Anonymous') {
-      // For non-protected routes, just use Http
-      this.http.get(url)
-        .subscribe(
-          response => this.response = response.text(),
-          error => this.response = error.text()
-        );
-    }
-    if (type === 'Secured') {
-      // For protected routes, use AuthHttp
-      this.authHttp.get(url)
-        .subscribe(
-          response => this.response = response.text(),
-          error => this.response = error.text()
-        );
-    }
-  }
 }

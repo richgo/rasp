@@ -1,7 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ContactComponent } from './components/contact/contact.component';
-import { HelpComponent } from './components/help/help.component';
+import { KeytouseComponent } from './components/keytouse/keytouse.component';
 import { CategoryComponent } from './components/category/category.component';
 import { GroupingComponent } from './components/grouping/grouping.component';
 import { HomeComponent } from './components/home/home.component';
@@ -19,8 +18,7 @@ const appRoutes: Routes = [
  { path: 'grouping/:gid', component: GroupingComponent, canActivate: [AuthGuard] },
  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]  },
  { path: 'overall', component: OverallComponent, canActivate: [AuthGuard] },
- { path: 'contact', component: ContactComponent },
- { path: 'help', component: HelpComponent },
+ { path: 'keytouse', component: KeytouseComponent },
  { path: 'app', component: AppComponent,
   children : [
   {

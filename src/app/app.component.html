@@ -1,17 +1,17 @@
 
 
   <md-toolbar color="primary">
-    <button md-button [routerLink]="['/login']"  (click)="sidenav.close()">
-    HOME
-      <md-icon>home</md-icon>
+    <button md-button [routerLink]="['/keytouse']" (click)="sidenav.close()" *ngIf="auth.authenticated()">
+      KEY
+      <md-icon>vpn_key</md-icon>
     </button>
 
-    <button md-button [routerLink]="['/grouping/0']"  (click)="sidenav.open()">
+    <button md-button [routerLink]="['/grouping/0']"  (click)="sidenav.open()" *ngIf="auth.authenticated()">
       GROUPINGS
       <md-icon>mode_edit</md-icon>
     </button>
 
-    <button md-button [routerLink]="['/overall']"  (click)="sidenav.close()">
+    <button md-button [routerLink]="['/overall']"  (click)="sidenav.close()" *ngIf="auth.authenticated()">
       OVERALL
       <md-icon>trending_up</md-icon>      
     </button>
@@ -33,7 +33,7 @@
   </button>
 
     <md-menu #settings="mdMenu">
-         <button md-button (click)="isDarkTheme = !isDarkTheme">TOGGLE DARK THEME</button>     
+         <button md-button  *ngIf="auth.authenticated()" (click)="isDarkTheme = !isDarkTheme">TOGGLE DARK THEME</button>     
     </md-menu>
 
   </md-toolbar>
@@ -41,7 +41,7 @@
 
 
 <md-sidenav #sidenav class="docs-component-viewer-sidenav"
-              [opened]="true"
+              [opened]="false"
               [mode]="'side'">
  
 <nav *ngFor="let grouping of questionConfig.getConfig()">
