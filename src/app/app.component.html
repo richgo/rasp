@@ -49,9 +49,9 @@
           <a [routerLink]="['/grouping', grouping.gid]" md-button>{{grouping.name}}</a>
       </h3>
       <ul>
-        <li *ngFor="let subgroup of grouping.subgrouping">
-        <a  [routerLink]="['/category', grouping.gid, subgroup.sid]" md-button>
-            {{subgroup.name}}
+        <li *ngFor="let category of grouping.categories">
+        <a  [routerLink]="['/category', grouping.gid, category.cid]" md-button>
+            {{category.name}}
           </a>
         </li>
       </ul>

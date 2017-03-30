@@ -37,7 +37,7 @@ export class GroupingComponent implements OnInit {
            this.groupname = group.name;
         this.groupdescription = group.description;
 
-        this.radarChartLabels = group.subgrouping.map(obj => obj.name);
+        this.radarChartLabels = group.categories.map(obj => obj.name);
         this.radarChartData = [{ data: [ 1,3,4,3], label: this.groupname }, { data: [ 5,3,1,3], label: 'test' }];
      //  }
     });

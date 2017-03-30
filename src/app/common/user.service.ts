@@ -13,18 +13,31 @@ export class User {
 }
 
 export class Grouping {
-    gid: number;
-    categories: Category[];
+
+    Gid: number;
+    public categories: Category[];
+
+      constructor(private gid : number){
+        this.Gid = gid;
+  }
 }
 
 export class Category {
-    sid: number;
-    questions: Question[];
+    Cid: number;
+    public questions: Question[];
+
+      constructor(private cid : number){
+        this.Cid = cid;
+      }
 }
 
 export class Question {
-    qid: number
+    Qid: number
     score: number;
+
+    constructor(private qid : number){
+        this.Qid = qid;
+      }
 }
 
 @Injectable()
@@ -60,7 +73,7 @@ export class UserService {
        this.saveUser(id).subscribe(user => console.debug("saved"), error =>  console.debug(<any>error));
   }
 
-  public saveUser(user): any{
+  public saveUser(user): any {
     let user$ = this.http
       .post(this.saveFunction, { headers: this.getHeaders(), body: user})
        .map(res => res.json)
@@ -80,12 +93,28 @@ export class UserService {
     return headers;
   }
 
-//   private mapUsers(response:Response): User{
-//    // The response of the API has a results
-//    // property with the actual results
-//    console.debug(response);
-//    return response.json().results.map(this.toUser);
-//   }
+  public getGrouping(gid: number) : Grouping {
+
+    let grouping = this.User.groupings.filter(g => g.Gid === gid);
+
+    if(grouping.length === 0){
+      let grp = new Grouping(gid);
+      grouping.push(grp);
+    }
+    return grouping[0];
+  }
+
+  public getCategory(cid: number, gid: number): Category {
+  
+    let grouping = this.getGrouping(gid);
+    let category = grouping.categories.filter(g => g.Cid === cid);
+
+    if(category.length === 0){
+      let cat = new Category(cid);
+      category.push(cat);
+    }
+   return category[0];
+  }
 
   private mapUser(r:any, id:string): User {
     let user = <User>({ id: id, groupings: r });

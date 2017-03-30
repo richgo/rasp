@@ -33,7 +33,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     BrowserModule,
     ChartsModule,
     MaterialModule.forRoot(),
-    routing,
+    routing    
   ],
   declarations: [ AppComponent, 
                   LoginComponent,

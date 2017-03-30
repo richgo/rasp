@@ -31,10 +31,10 @@ export class OverallComponent implements OnInit {
        let group = this.questionConfig
                         .getConfig();   
 
-          this.groupname = group[0].name;
+        this.groupname = group[0].name;
         this.groupdescription = group[0].description;
 
-        this.radarChartLabels = group[0].subgrouping.map(obj => obj.name);
+        this.radarChartLabels = group[0].categories.map(obj => obj.name);
         this.radarChartData = [{ data: [ 1,3,4,3], label: this.groupname }, { data: [ 5,3,1,3], label: 'test' }];
      //  }
     });

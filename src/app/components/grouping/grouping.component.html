@@ -14,9 +14,9 @@
                 <td>Score</td>
               </thead>
               <tbody>
-              <tr *ngFor="let  of questions">
+              <tr *ngFor="let c of categories">
                 <td>
-                 <p>{{q.question}}</p>
+                 <p>{{c.score}}</p>
                   </td>
                   <td>
                   <md-select placeholder="score">
@@ -26,16 +26,7 @@
               </tr>             
          </tbody>
          <tfoot>
-           <tr>
-             <td></td>
-             <td>
-                        
-    <span class="app-action" [class.m2app-dark]="isDarkTheme">
-      <button title="save" md-fab><md-icon>check circle</md-icon></button>
-    </span>
-             </td>
-
-           </tr>
+          
          </table>
          
 

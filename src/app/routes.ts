@@ -13,21 +13,21 @@ import { AuthGuard } from './common/auth.guard';
 const appRoutes: Routes = [
  { path: 'login',  component: LoginComponent },
  { path: 'signup', component: SignupComponent },
- { path: '', redirectTo: '/category/:gid', pathMatch: 'full' },
- { path: 'category/:gid/:sid', component: CategoryComponent, canActivate: [AuthGuard] },
+ { path: '', redirectTo: '/keytouse', pathMatch: 'full' },
+ { path: 'category/:gid/:cid', component: CategoryComponent, canActivate: [AuthGuard] },
  { path: 'grouping/:gid', component: GroupingComponent, canActivate: [AuthGuard] },
  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]  },
  { path: 'overall', component: OverallComponent, canActivate: [AuthGuard] },
- { path: 'keytouse', component: KeytouseComponent },
- { path: 'app', component: AppComponent,
+ { path: 'keytouse', component: KeytouseComponent, canActivate: [AuthGuard]  },
+ { path: 'app', component: AppComponent, canActivate: [AuthGuard] ,
   children : [
   {
     path: '',
-    redirectTo: '/grouping/:gid',
+    redirectTo: '/keytouse',
     pathMatch: 'full'
   },
   {
-    path: 'category/:gid/:sid',
+    path: 'category/:gid/:cid',
    component: CategoryComponent
   },
    {
