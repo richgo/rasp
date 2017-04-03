@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { FormsModule } from '@angular/forms';
 import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
 import { routing } from './routes';
-import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache';
+import { CacheService, CacheStoragesEnum } from 'ng2-cache/ng2-cache';
 
 import { QuestionConfig } from './questionconfig';
 import { UserService } from './common/user.service';
@@ -35,7 +37,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   imports: [
     BrowserModule,
     ChartsModule,
+    FormsModule,
     MaterialModule.forRoot(),
+    FlexLayoutModule,
     routing    
   ],
   declarations: [ AppComponent, 

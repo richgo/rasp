@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, Host } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QuestionConfig } from '../../questionconfig';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-grouping',
@@ -19,12 +20,11 @@ export class GroupingComponent implements OnInit {
   groupdescription: string;
   questions: any;
   gid: number;
-  @ViewChild('start') sideNav;
-
   private sub: any;
 
-  constructor(public questionConfig: QuestionConfig, private route: ActivatedRoute) {
-    
+  constructor(public questionConfig: QuestionConfig, private route: ActivatedRoute, 
+              @Host() parent: AppComponent) {
+        parent.sideNav.open();
    }
 
   ngOnInit() {
@@ -41,7 +41,6 @@ export class GroupingComponent implements OnInit {
         this.radarChartLabels = group.categories.map(obj => obj.name);
         this.radarChartData = [{ data: [ 1,3,4,3], label: this.groupname }, { data: [ 5,3,1,3], label: 'test' }];
      //  }
-        this.sideNav.open();
     });
   }
 

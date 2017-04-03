@@ -17,7 +17,10 @@
     </button>
      
     <span class="app-toolbar-filler"></span> 
-    <img src="assets/Eduserv-logo-white-transparent2s.png"/>
+    <div class="title-text">Readiness Assessment for a Shared Services Programme</div>
+    <div class="title-logo">
+      <img src="assets/Eduserv-logo-white-transparent2s.png"/>
+    </div>
 
    <button md-button class="app-icon-button" [md-menu-trigger-for]="account">
       <md-icon>account_circle</md-icon>      
@@ -27,14 +30,14 @@
         <button md-button (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
         <button md-button (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button> 
     </md-menu>
-
+<!--
   <button md-button class="app-icon-button" [md-menu-trigger-for]="settings">
       <md-icon>settings</md-icon>
   </button>
 
     <md-menu #settings="mdMenu">
          <button md-button  *ngIf="auth.authenticated()" (click)="isDarkTheme = !isDarkTheme">TOGGLE DARK THEME</button>     
-    </md-menu>
+    </md-menu>-->
 
   </md-toolbar>
 <md-sidenav-container [class.m2app-dark]="isDarkTheme"  class="docs-component-viewer-sidenav-container">

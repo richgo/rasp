@@ -136,7 +136,7 @@ export class UserService {
 
     if(category.length === 0){
       let cat = new Category(cid);
-      this.User.groupings.filter(g => g.Gid === cid)[0].categories.push(cat);
+      this.User.groupings.filter(g => g.Gid === gid)[0].categories.push(cat);
       return cat;
     }
    return category[0];
@@ -175,17 +175,4 @@ export class UserService {
     console.log('Parsed user:', user);
     return user;
   }  
-
-    // to avoid breaking the rest of our app
-    // I extract the id from the person url
-    // private extractId(personData:any){
-    //   let extractedId = personData.url.replace('http://swapi.co/api/people/','').replace('/','');
-    //   return parseInt(extractedId);
-    // }
-
-    // private mapUser(response:Response): User{
-    // // toPerson looks just like in the previous example
-    //   return this.toUser(response.json());
-    // }
-
 }

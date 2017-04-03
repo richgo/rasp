@@ -5,3 +5,8 @@ md-grid-tile{
 md-padding{
     padding:20px;
 }
+
+.question-text{
+    font-size: 0.9em;
+    text-justify: full;
+}

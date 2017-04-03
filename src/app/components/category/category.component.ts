@@ -1,7 +1,8 @@
-import { Component, OnInit, Output, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, Input, Host } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QuestionConfig } from '../../questionconfig';
 import { UserService, Category, Question } from '../../common/user.service';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-category',
@@ -24,12 +25,13 @@ export class CategoryComponent implements OnInit {
   gid: number;
   cid: number;
   questions : Question[];
-  @ViewChild('sidenav') sideNav;
+
 
   private sub: any;
 
-  constructor(public questionConfig: QuestionConfig, private route: ActivatedRoute, public userService: UserService) {
-
+  constructor(public questionConfig: QuestionConfig, private route: ActivatedRoute, 
+              public userService: UserService, @Host() parent: AppComponent) {
+        parent.sideNav.open();
    } 
 
   ngOnInit() {
@@ -55,8 +57,12 @@ export class CategoryComponent implements OnInit {
 
         console.debug(this.userService);
         this.questions = this.userService.getQuestions(this.cid, this.gid, categories.questions);
-        this.sideNav.open();
+
     });
+  }
+
+  onSubmit(){
+
   }
 
   private save(){

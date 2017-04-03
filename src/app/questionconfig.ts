@@ -12,7 +12,7 @@ const CONFIG = [
                 { qid: 0, question: 'Does the wider organisation understand and support the ambitions of each organisation?' },
                 { qid: 1, question: 'Does everyone have a common understanding of the objectives of the programme: What success looks like?'},				
                 { qid: 2, question: 'Is it accepted that middle-management responsibilities are likely to be impacted?'},				
-                { qid: 3,  question: 'Is there a post-delivery operating model based on an agreed enterprise architecture if required?'},			
+                { qid: 3, question: 'Is there a post-delivery operating model based on an agreed enterprise architecture if required?'},			
                 { qid: 4, question: 'Is there an agreed single staff communications plan?'}            
             ]},
         { name: 'Knowing what is to be shared',
@@ -26,7 +26,8 @@ const CONFIG = [
                 { qid: 5, question: 'Has it been determined (and agreed for each party) what benefits the shared services will target, so that decision can be made around what IT (for example) needs to be integrated/retired/retained to attain those benefits?' },				
 				        { qid: 6, question: 'Is there a clear definition of WHY sharing is beneficial (e.g. capacity, economies of scale, savings, resilience, accelerating change, reducing risk, retaining skills, political demand etc). Note these may be specific and measurable or general aims.' }	
 	        ]},
-        { name: 'Political Backing', cid: 2,
+        { name: 'Political Backing', 
+          cid: 2,
           questions: [
               { qid: 0, question: "Has political backing been secured, including ensuring that political issues and concerns are identified and addressed (e.g. subcidiarity, local priorities, policy or governance matters)?"},
               { qid: 1, question: "Are politicians aware of the nature of the commitment in terms of resources, risks and shared priorities? Has this been made explicit in terms of posts to be lost? Will the plans have public visibility and are members briefed to explain this to constituents?" },
@@ -34,7 +35,8 @@ const CONFIG = [
               { qid: 3, question: "Has allowance been made to enable parties to walk away from the shared service? This is not the desired outcome, but an exit plan from the beginning and a fixed term planning horizon, rather than ‘life’, can avoid partners from feeling ‘trapped’." },
               { qid: 4, question: "Are there competing shared service projects (existing or planned) which will conflict or take priority?" },
           ]},
-        { name: 'Agreeing where best practice lies', cid: 3,
+        { name: 'Agreeing where best practice lies', 
+          cid: 3,
             questions: [
                { qid: 0, question: "Has an analysis been undertaken of the various options for absorbing best practice from partners, integrating new models and retiring duplicated or sub-optimal systems/processes?" },
                { qid: 1, question: "Are principles in place to ensure that compromises are possible where needed in the interests of the wider ambitions of joint working?" }, 
@@ -103,12 +105,14 @@ const CONFIG = [
                 { qid: 2, question: 'Has the impact of resource centralisation on the “losing” local economy and infrastructure been taken into account?' },				
                 { qid: 3, question: 'Is the basis for acquiring new joint solutions agreed – such as shared cloud systems?'},			
            ]},
-        { name: 'Agreed basis for sharing costs and benefits', cid: 2,
+        { name: 'Agreed basis for sharing costs and benefits', 
+          cid: 2,
           questions: [
               { qid: 0, question: "Has a joint as well as an organisation-level business case(s) been prepared and agreed, to show that all parties benefit and joint working accrue mutual value?"},
               { qid: 1, question: "Is a mechanism agreed for sharing risk, reward and capital cost? Is a steady-state revenue sharing model in place and agreed?" },
              ]},
-        { name: 'IT readiness assessment', cid: 3,
+        { name: 'IT readiness assessment', 
+          cid: 3,
             questions: [
                { qid: 0, question: "Technology will be key to success. Has sufficient analysis work been carried out to assess capacity, competency of IT teams and their ability to work together with shared management if required to deliver joint outcomes? Has this been ‘baselined’ to understand the impact of the shared service once in place and avoid it being perceived as the cause of historical issues?" },
                { qid: 1, question: "Has a re-prioritising of IT activity and strategy taken place to promote the shared working programme so it does not simply join the end of the IT queue for expertise and support?  Does your programme governance ensure this or include penalties for failure (e.g. allowing other resources to be applied to a task at a cost rechargeable to the defaulting party)? Have existing local non-negotiable priorities been acknowledged by all parties?" }, 
@@ -142,14 +146,16 @@ const CONFIG = [
                 { qid: 5, question: 'If there are different approaches to IT risk control on the partner organisations, has a plan been put in place to harmonise, including disaster recovery, security and employee empowerment? Has liability for error been planned for – i.e. the impact of an employee from one can cause on the other, during the transition?'},			
                 { qid: 6, question: 'Have IT skills and capacity gaps been reviewed and resolved?'},			
            ]},
-        { name: 'Contracts, and dependency on contracts and contractors', cid: 2,
+        { name: 'Contracts, and dependency on contracts and contractors', 
+          cid: 2,
           questions: [
               { qid: 0, question: "Has an asset review of all systems and external contracts been undertaken to identify dependency, including links between systems or on external services to make changes necessary for the shared services to work?"},
               { qid: 1, question: "Are there plans and owners in place to renegotiate key contracts where required to support the shared services? Has a statement been prepared (supported by precedents and the legal model agreed) which informs suppliers that they will effectively be dealing with a single entity and requires their acknowledgement?" },
               { qid: 2, question: "Whilst defined as a last resort, is there an agreed approach to managing exit arrangements should it become necessary?" },
               { qid: 3, question: "Is there capacity in house to absorb the extra work on shared services or is additional short-term transitional support needed, increasing costs of contractors and consultants? Has any claim of ability to absorb the extra work been challenged?" },
              ]},
-        { name: 'Change management and other leadership competencies', cid: 3,
+        { name: 'Change management and other leadership competencies', 
+            cid: 3,
             questions: [
                { qid: 0, question: "Is there a sufficiently strong team in place in terms of experience and capacity in key areas such as finance, procurement and HR, supported by IT?" },
                { qid: 1, question: "Is there an effective and agreed change management plan in place, with change champions and visible senior leadership support?" }, 
@@ -185,14 +191,16 @@ const CONFIG = [
                 { qid: 7, question: 'Is there a common methodology for the project in place – PMO, agile methods, testing, scrutiny, political involvement?'},			
                 { qid: 8, question: 'Are all the necessary change leadership roles defined and in place (dedicated where necessary), on a single team sheet, agreed with all parties?'},			
            ]},
-        { name: 'Change programme design and agreement', cid: 2,
+        { name: 'Change programme design and agreement', 
+          cid: 2,
           questions: [
               { qid: 0, question: "Is there a full change programme in place and agreed by the joint board, including costs, business case, delivery plan, post-completion benefits reporting and the relevant components of that plan (HR, communications, risk management, finance, IT etc)?"},
               { qid: 1, question: "Has a timescale for transition been agreed at the start, that is not too long but realistic in terms of what needs to be done?" },
               { qid: 2, question: "Does the change programme structure and approach meet the highest standards of the contributing organisations (not dumbing down)? Are independent auditors satisfied and able to periodically review?" },
               { qid: 3, question: "Does the programme accounting arrangement have sufficient depth and oversight to produce reliable data eliminating double counting of benefits by the programme workstreams and individual participants?" },
              ]},
-        { name: 'Legal base for joint working', cid: 3,
+        { name: 'Legal base for joint working', 
+            cid: 3,
             questions: [
                { qid: 0, question: "Is there a shared portfolio in place on which a legal contract can be defined?" },
                { qid: 1, question: "Has a suitable legal basis been selected, agreed and signed for the shared service and trading, including links to other contracts, sharing of costs and savings and governance?" }, 

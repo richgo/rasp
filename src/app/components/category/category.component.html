@@ -1,18 +1,20 @@
-  <md-card>
+  <md-card md-padding>
     <h3>{{groupname}}</h3>
     <p>
           {{groupdescription}}
     </p>
         </md-card>
-        <md-grid-list cols="2">
-          <md-grid-tile>
-      <md-card>
+        <!--<md-grid-list cols="2">
+          <md-grid-tile>-->
+   <div fxFlexFill fxLayout="row" fxLayoutAlign="space-between start" >
+      <md-card md-padding>
+        <form #f="ngForm" (ngSubmit)="onSubmit()">
             <h4>{{subgroupname}}</h4> 
             <table>
               <tbody>
               <tr *ngFor="let q of configQuestions">
                 <td>
-                 <p>{{q.question}}</p>
+                 <p class="question-text">{{q.question}}</p>
                   </td>
                   <td>
                   <md-select placeholder="score" >
@@ -27,25 +29,27 @@
              <td>
                         
     <span class="app-action" [class.m2app-dark]="isDarkTheme">
-      <button title="save" (click)="save()" md-fab><md-icon>save</md-icon></button>
+      <button title="save" type="submit" [disabled]="f.dirty" (click)="save()" md-fab><md-icon>save</md-icon></button>
     </span>
              </td>
 
            </tr>
          </table>
          
-
+           </form>
        </md-card>
+       <div md-padding>
+         </div>
    
-       </md-grid-tile>
-       <md-grid-tile>
-   
-      <md-card>
+       <!--</md-grid-tile>
+       <md-grid-tile>-->
+    
+      <md-card md-padding>
         
    <radar-chart [radarChartData]="radarChartData"
                 [radarChartLabels]="radarChartLabels"></radar-chart>
         
       </md-card>
-    </md-grid-tile>
-    </md-grid-list>
-      
+    <!--</md-grid-tile>
+    </md-grid-list>-->
+</div>
