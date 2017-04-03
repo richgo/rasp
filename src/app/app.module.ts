@@ -4,10 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
 import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
 import { routing } from './routes';
+import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache';
+
 import { QuestionConfig } from './questionconfig';
 import { UserService } from './common/user.service';
 import { AppComponent } from './app.component';
 import { ChartsModule } from 'ng2-charts';
+
 import { RadarChartComponent } from './components/radarchart/radarchart';
 import { Footer } from './components/footer/footer';
 import { SideNavComponent } from './components/sidenav/sidenav';
@@ -47,7 +50,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
                   GroupingComponent,
                   HomeComponent],
   entryComponents: [],
-  providers: [QuestionConfig, UserService, AuthService, AuthGuard,  
+  providers: [QuestionConfig, UserService, CacheService, AuthService, AuthGuard,  
     {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,

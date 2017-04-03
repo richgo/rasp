@@ -2,17 +2,17 @@
 
   <md-toolbar color="primary">
     <button md-button [routerLink]="['/keytouse']" (click)="sidenav.close()" *ngIf="auth.authenticated()">
-      KEY
+      INSTRUCTIONS
       <md-icon>vpn_key</md-icon>
     </button>
 
     <button md-button [routerLink]="['/grouping/0']"  (click)="sidenav.open()" *ngIf="auth.authenticated()">
-      GROUPINGS
+      ASSESSMENT
       <md-icon>mode_edit</md-icon>
     </button>
 
     <button md-button [routerLink]="['/overall']"  (click)="sidenav.close()" *ngIf="auth.authenticated()">
-      OVERALL
+      RESULTS
       <md-icon>trending_up</md-icon>      
     </button>
      

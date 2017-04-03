@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input, Injectable } from '@angular/core';
+import { Component, OnInit, Output, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QuestionConfig } from '../../questionconfig';
 import { UserService, Category, Question } from '../../common/user.service';
@@ -9,10 +9,7 @@ import { UserService, Category, Question } from '../../common/user.service';
   styleUrls: ['./category.component.css']
 })
 
-@Injectable()
 export class CategoryComponent implements OnInit {
-
-  @Input() userService: UserService;
 
   @Output() radarChartLabels:string[] = []; 
   @Output() radarChartData:any = [
@@ -23,16 +20,17 @@ export class CategoryComponent implements OnInit {
   subgroupname: string;
   groupname: string;
   groupdescription: string;
-  questions: any;
+  configQuestions: any;
   gid: number;
   cid: number;
-  userCategory : Category;
+  questions : Question[];
+  @ViewChild('sidenav') sideNav;
 
   private sub: any;
 
-  constructor(public questionConfig: QuestionConfig, private route: ActivatedRoute) {
+  constructor(public questionConfig: QuestionConfig, private route: ActivatedRoute, public userService: UserService) {
 
-   }
+   } 
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -43,12 +41,12 @@ export class CategoryComponent implements OnInit {
                         .getConfig()
                         .filter(x => x.gid == this.gid)[0];   
 
-       let subgroup = group.categories
+       let categories = group.categories
                           .filter(x => x.cid == this.cid)[0];
                             
         
-        this.subgroupname = subgroup.name;
-        this.questions = subgroup.questions;
+        this.subgroupname = categories.name;
+        this.configQuestions = categories.questions;
         this.groupname = group.name;
         this.groupdescription = group.description;
 
@@ -56,8 +54,13 @@ export class CategoryComponent implements OnInit {
         this.radarChartData = [{ data: [ 1,3,4,3], label: this.groupname }, { data: [ 5,3,1,3], label: 'test' }];
 
         console.debug(this.userService);
-       // this.userCategory = this.userService.getCategory(this.sid, this.gid);
+        this.questions = this.userService.getQuestions(this.cid, this.gid, categories.questions);
+        this.sideNav.open();
     });
+  }
+
+  private save(){
+    console.debug(this.questions);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Optional, Output } from '@angular/core';
+import { Component, Optional, Output, ViewChild } from '@angular/core';
 import { QuestionConfig } from './questionconfig';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
@@ -20,11 +20,11 @@ export class AppComponent {
   decodedJwt: string;
   response: string;
   api: string;
-  @Output() userSerice: UserService;
+  @ViewChild('sidenav') sideNav;
 
   constructor(public questionConfig: QuestionConfig, public router: Router, public http: Http,
               public authHttp: AuthHttp, private auth: AuthService, public userService: UserService) {
-   
+
   }
 
 

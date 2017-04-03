@@ -2,7 +2,8 @@ import { Component, Input  } from '@angular/core';
 
 @Component({
   selector: 'radar-chart',
-  templateUrl: './radarchart.html'
+  templateUrl: './radarchart.html',
+    styleUrls: ['./radarchart.css']
 })
 export class RadarChartComponent {
   @Input() radarChartLabels: string[];

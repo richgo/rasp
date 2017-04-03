@@ -5,18 +5,18 @@
     </p>
         </md-card>
         <md-grid-list cols="2">
-          <md-grid-tile >
+          <md-grid-tile>
       <md-card>
             <h4>{{subgroupname}}</h4> 
             <table>
               <tbody>
-              <tr *ngFor="let q of questions">
+              <tr *ngFor="let q of configQuestions">
                 <td>
                  <p>{{q.question}}</p>
                   </td>
                   <td>
-                  <md-select placeholder="score">
-                    <md-option *ngFor="let score of scores" [value]="score" ng-selected="q.selectedScore">{{ score }}</md-option>
+                  <md-select placeholder="score" >
+                    <md-option *ngFor="let score of scores" [value]="score" ng-selected="questions[q.id].score">{{ score }}</md-option>
                   </md-select>
                  <td>
               </tr>             
@@ -27,7 +27,7 @@
              <td>
                         
     <span class="app-action" [class.m2app-dark]="isDarkTheme">
-      <button title="save" md-fab><md-icon>check circle</md-icon></button>
+      <button title="save" (click)="save()" md-fab><md-icon>save</md-icon></button>
     </span>
              </td>
 
