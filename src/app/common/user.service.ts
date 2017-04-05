@@ -105,11 +105,11 @@ export class UserService {
   }
 
   public getGrouping(gid: number) : Grouping {
-    console.debug(this.User);
+    console.log(this.User);
 
     if( this.User === undefined){
          this.User = this._cacheService.get('user');
-         console.debug('loading user from cache ' + this.User);
+         console.log('loading user from cache ' + this.User);
     }
 
     if(!Array.isArray(this.User.groupings)){
@@ -117,7 +117,7 @@ export class UserService {
     }
 
     let grouping = this.User.groupings.filter(g => g.Gid === gid);
-    console.debug('gid ' + gid + ', grouping l ' + grouping.length);
+    console.log('gid ' + gid + ', grouping l ' + grouping.length);
     if(grouping.length === 0){
       let grp = new Grouping(gid);
       this.User.groupings.push(grp);
