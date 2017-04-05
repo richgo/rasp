@@ -55,11 +55,13 @@ export class UserService {
 
   public load(id: string): any {
     
+      console.log('getting user: ' + id);
        this.getUser(id).subscribe(groupings => {
 
          this.User = this.mapUser(groupings, id);
+          console.log('caching user: ' + id);
          let result: boolean = this._cacheService.set('user', this.User);
-         console.debug('user cached ' + this.User.id);
+         console.log('user cached ' + this.User.id);
         
       }, error =>  console.debug(<any>error));
   }
