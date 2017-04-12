@@ -1,13 +1,16 @@
-  <md-card md-padding>
+<div fxFlexFill fxLayoutGap="20px" fxLayout="row"  fxLayoutAlign="space-around start">
+  
+  <md-card class="md-margin-bottom">
     <h3>{{groupname}}</h3>
     <p>
           {{groupdescription}}
     </p>
-        </md-card>
-        <!--<md-grid-list cols="2">
-          <md-grid-tile>-->
-   <div fxFlexFill fxLayout="row" fxLayoutAlign="space-around start" >
-      <md-card md-padding>
+  </md-card>
+</div>
+
+<div fxFlexFill fxLayoutGap="20px" fxLayout="row"  fxLayoutAlign="space-around start">
+     <div  class="flex-item">
+      <md-card>
         <form #f="ngForm" (ngSubmit)="onSubmit()">
             <h4>{{subgroupname}}</h4> 
             <table>
@@ -25,8 +28,8 @@
          </tbody>
          <tfoot>
            <tr>
-             <td></td>
-             <td>
+  <td></td>
+  <td>
                         
     <span class="app-action" [class.m2app-dark]="isDarkTheme">
       <button title="save" type="submit" [disabled]="f.dirty" (click)="save()" md-fab><md-icon>save</md-icon></button>
@@ -38,16 +41,16 @@
          
            </form>
        </md-card>
-    
-       <!--</md-grid-tile>
-       <md-grid-tile>-->
-    
-      <md-card md-padding>
+     </div>
+     
+  <div  class="flex-item">
+      <md-card>
         
    <radar-chart [radarChartData]="radarChartData"
                 [radarChartLabels]="radarChartLabels"></radar-chart>
         
       </md-card>
+      </div>
     <!--</md-grid-tile>
     </md-grid-list>-->
 </div>

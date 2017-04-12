@@ -2,11 +2,11 @@ md-grid-tile{
    vertical-align:top;
 }
 
-md-padding{
-    padding:20px;
+.md-margin-bottom{
+    margin-bottom:20px;
 }
 
 .question-text{
     font-size: 0.9em;
     text-justify: full;
-}
+}  

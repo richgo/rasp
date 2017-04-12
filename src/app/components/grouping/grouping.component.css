@@ -5,3 +5,7 @@ md-grid-tile{
 md-card{
    vertical-align:top;
 }
+
+.md-margin-bottom{
+    margin-bottom:20px;
+}
