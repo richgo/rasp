@@ -6,6 +6,14 @@ md-grid-tile{
     margin-bottom:20px;
 }
 
+.chart-panel{
+    width: 40%;
+}  
+
+.question-panel{
+    width: 60%;
+}  
+
 .question-text{
     font-size: 0.9em;
     text-justify: full;

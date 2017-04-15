@@ -1,15 +1,33 @@
 <div fxFlexFill fxLayoutGap="20px" fxLayout="row"  fxLayoutAlign="space-around start">
   
   <md-card class="md-margin-bottom">
-    <h3>{{groupname}}</h3>
-    <p>
-          {{groupdescription}}
-    </p>
+      <table>
+         <tbody>
+           <tr>
+             <td>
+                 <span class="app-action" [class.m2app-dark]="isDarkTheme">
+                  <button title="previous" type="submit" md-fab><md-icon>keyboard_arrow_left</md-icon></button>
+                </span>
+            </td>
+               <td>
+                  <h3>{{groupname}}</h3>
+                  <p>
+                        {{groupdescription}}
+                  </p>
+            </td>            
+            <td>
+              <span class="app-action" [class.m2app-dark]="isDarkTheme">
+                  <button title="next" type="submit" md-fab><md-icon>keyboard_arrow_right</md-icon></button>
+                </span>
+            </td>
+           </tr>
+         </tbody>
+     </table>
   </md-card>
 </div>
 
-<div fxFlexFill fxLayoutGap="20px" fxLayout="row"  fxLayoutAlign="space-around start">
-     <div  class="flex-item">
+<div fxFlexFill fxLayoutGap="20px" fxLayout="row" layout-fill fxLayoutAlign="space-around start">
+     <div class="question-panel"> 
       <md-card>
         <form #f="ngForm" (ngSubmit)="onSubmit()">
             <h4>{{subgroupname}}</h4> 
@@ -43,7 +61,7 @@
        </md-card>
      </div>
      
-  <div  class="flex-item">
+  <div class="chart-panel">
       <md-card>
         
    <radar-chart [radarChartData]="radarChartData"

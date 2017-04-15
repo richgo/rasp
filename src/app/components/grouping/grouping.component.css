@@ -6,6 +6,14 @@ md-card{
    vertical-align:top;
 }
 
+.chart-panel{
+    width: 50%;
+}  
+
+.summary-panel{
+    width: 50%;
+}  
+
 .md-margin-bottom{
     margin-bottom:20px;
 }

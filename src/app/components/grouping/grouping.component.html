@@ -1,12 +1,31 @@
  <div fxFlexFill fxLayoutGap="20px" fxLayout="row"  fxLayoutAlign="space-around start">
   <md-card class="md-margin-bottom">
-    <h3>{{groupname}}</h3>
-    <p>
-          {{groupdescription}}
-    </p>
+     <table>
+         <tbody>
+           <tr>
+             <td>
+                 <span class="app-action" [class.m2app-dark]="isDarkTheme">
+                  <button title="previous" type="submit" md-fab><md-icon>keyboard_arrow_left</md-icon></button>
+                </span>
+            </td>
+               <td>
+                  <h3>{{groupname}}</h3>
+                  <p>
+                        {{groupdescription}}
+                  </p>
+            </td>            
+            <td>
+              <span class="app-action" [class.m2app-dark]="isDarkTheme">
+                  <button title="next" type="submit" md-fab><md-icon>keyboard_arrow_right</md-icon></button>
+                </span>
+            </td>
+           </tr>
+         </tbody>
+     </table>
   </md-card>
  </div>
  <div fxFlexFill fxLayoutGap="20px" fxLayout="row"  fxLayoutAlign="space-around start">
+       <div class="summary-panel"> 
       <md-card>
             <h4>Summary</h4> 
             <table>
@@ -30,11 +49,13 @@
           
          </table>
       </md-card>
-    
+       </div>
+        <div class="chart-panel"> 
       <md-card>
         
    <radar-chart [radarChartData]="radarChartData"
                 [radarChartLabels]="radarChartLabels"></radar-chart>
         
       </md-card>
+        </div>
  </div>
